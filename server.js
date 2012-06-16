@@ -39,8 +39,25 @@
 
 
         console.log("Client id", socket.id);
-//        setInterval(function() {
-//        }, 1200);
+        setInterval(function() {
+            r.get("everyone_yes", function(err ,reply) {
+                return io.sockets.emit('count_yes', {
+                    number: reply
+                } );
+
+
+                }   );
+
+            r.get("everyone_no", function(err ,reply) {
+                return io.sockets.emit('count_no', {
+                    number: reply
+                } );
+
+
+            }   );
+
+
+        }, 1200);
 
         socket.on('vote', function(data) {
 //          req.session.id = req.session.id ? req.session.id : guidGenerator();
@@ -63,20 +80,20 @@
                 }
 
                 console.log("Client ", key, " : OldVote = ", oldVote, "NewVote = ", newVote);
-                if (oldVote === newVote) {
+                if (oldVote.toString() == newVote.toString()) {
                     // no-op
                 } else {
-                    var everyone_yes = null;
-                    var everyone_no = null;
-                    if (newVote === true) {
+                    //var everyone_yes = null;
+                    //var everyone_no = null;
+                    if (newVote.toString() == "true") {
                         console.log('Counting the true');
-                        everyone_yes = r.incr("everyone_yes")
-                        everyone_no = r.decr("everyone_no")
+                        r.incr("everyone_yes")
+                        r.decr("everyone_no")
                     }   else {
-                        everyone_yes = r.decr("everyone_yes")
-                        everyone_no = r.incr("everyone_no")
+                        r.decr("everyone_yes")
+                        r.incr("everyone_no")
                     }
-                    console.log("Currently everyone_yes=", everyone_yes, " and everyone_no=", everyone_no);
+                    //console.log("Currently everyone_yes=", everyone_yes, " and everyone_no=", everyone_no);
                 }
                 r.set(key, newVote.toString());
                 console.log('Just set the key to ', newVote);

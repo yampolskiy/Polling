@@ -32,7 +32,6 @@
         $('#thumbsUp').click(function(){
             console.log("Thumbs up");
             $( '#tags' ).val( 'Thumbs up' );
-
             socket.emit('vote', { data: { vote: true } });
         });
         $('#thumbsDown').click(function(){
