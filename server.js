@@ -3,6 +3,8 @@
     redis = require('redis');
     express = require('express');
     io = require('socket.io');
+    var MemoryStore = express.session.MemoryStore,
+
     app = module.exports = express.createServer();
 
     app.configure(function() {
@@ -10,7 +12,7 @@
         app.set('view engine', 'jade');
         app.use(express.bodyParser());
         app.use(express.methodOverride());
-        app.use(express.session({ store: new MemoryStore({ reapInterval: 60000 * 10 }) }));
+        //app.use(express.session({ store: new MemoryStore({ reapInterval: 60000 * 10 }) }));  
         app.use(require('stylus').middleware({
             src: __dirname + '/public'
         }));
@@ -33,14 +35,44 @@
 
     io.sockets.on('connection', function(socket) {
         const r = redis.createClient(6379, '127.0.0.1');
+        console.log("Connected to redis");
 
-        setInterval(function() {
 
-        }, 1200);
+        console.log("Client id", socket.id);
+//        setInterval(function() {
+//        }, 1200);
 
         socket.on('vote', function(data) {
-            req.session.id = req.session.id ? req.session.id : guidGenerator();
-            r.hset("votes", req.session.id, data.vote)
+//          req.session.id = req.session.id ? req.session.id : guidGenerator();
+            var json =  JSON.stringify(data);
+            var obj = JSON.parse(json);
+            console.log("Received vote from client ", obj, " and data ", obj.data.vote);
+
+
+            var key = 'vote:' + socket.id;
+            // old vote
+
+
+            var oldVote = r.get(key);   //r.get("votes", socket.id);                // for now i won't use hset/hget
+            var newVote = obj.data.vote;
+
+            console.log("Client ", key, " : OldVote = ", oldVote, "NewVote = ", newVote);
+
+            // set new vote
+            //r.del("votes", socket.id);
+            //r.set("votes", socket.id, obj.data.vote, redis.print);
+            r.del(key);
+
+            r.set(key, newVote);
+            console.log('Just set the key to ', newVote);
+            var foo = r.get(key);
+
+            console.log('sleeping');
+            setTimeout(1000);
+
+            console.log('Right after ', foo);
+
+
         });
     });
 
