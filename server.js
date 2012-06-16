@@ -76,7 +76,7 @@
                         everyone_yes = r.decr("everyone_yes")
                         everyone_no = r.incr("everyone_no")
                     }
-                    console.log("Currently everyone_yes=", eveyrone_yes, " and everyone_no=", everyone_no);
+                    console.log("Currently everyone_yes=", everyone_yes, " and everyone_no=", everyone_no);
                 }
                 r.set(key, newVote.toString());
                 console.log('Just set the key to ', newVote);
