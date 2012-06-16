@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title>Vote</title>
+    <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <script src="javascripts/jquery-1.7.2.min.js"></script>
+    <script src="http://localhost:8081/socket.io/socket.io.js"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+        var socket = io.connect('localhost', { port: 8081 });
+
+    </script>
+</head>
+<body>
+<div style="margin-left: auto; margin-right: auto; width: 300px;" class="well">
+    <center><h1>Vote</h1></center>
+    <a href="#" class="btn btn-success">Thumbs Up</a>
+    <a href="#" class="btn btn-danger">Thumbs Down</a>
+</div>
+</body>
+</html>
+
+<!--tracking code -->
+<script type="text/javascript">
+    (function() {
+
+    })();
+</script>
