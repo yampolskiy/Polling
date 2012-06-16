@@ -53,32 +53,38 @@
             // old vote
 
 
-            var oldVote = r.get(key);   //r.get("votes", socket.id);                // for now i won't use hset/hget
-            var newVote = obj.data.vote;
+            var oldVote = null;   //r.get("votes", socket.id);                // for now i won't use hset/hget
+            r.get(key, function(err, reply) {
+                oldVote = reply;
+                var newVote = obj.data.vote;
 
-            console.log("Client ", key, " : OldVote = ", oldVote, "NewVote = ", newVote);
-            if (oldVote === newVote) {
-                // no-op
-            } else {
-                if (newVote === true) {
-                    console.log('Counting the true');
-                }   else {
-                    console.log('Counting the false');
+                if (oldVote == null || oldVote == undefined) {
+                    oldVote = false;
                 }
-            }
 
-
-            r.set(key, newVote.toString());
-            console.log('Just set the key to ', newVote);
-            var foo = r.get(key, function(err, reply)
-                {
-                    if (err) {
-                        console.log("Error :" + err);
-                    } else {
-                        console.log("Value right after: " + reply);
+                console.log("Client ", key, " : OldVote = ", oldVote, "NewVote = ", newVote);
+                if (oldVote === newVote) {
+                    // no-op
+                } else {
+                    everyone_yes = null;
+                    everyone_no = null;
+                    if (newVote === true) {
+                        console.log('Counting the true');
+                        everyone_yes = r.incr("everyone_yes")
+                        everyone_no = r.decr("everyone_no")
+                    }   else {
+                        everyone_yes = r.decr("everyone_yes")
+                        everyone_no = r.incr("everyone_no")
                     }
+                    console.log("Currently everyone_yes=", eveyrone_yes, " and everyone_no=", everyone_no);
                 }
-            );
+                r.set(key, newVote.toString());
+                console.log('Just set the key to ', newVote);
+            });
+
+
+
+
         });
     });
 
