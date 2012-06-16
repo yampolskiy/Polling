@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aa929068-ce7f-4f34-905d-e1c93f22275e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/vote.html" afterPath="$PROJECT_DIR$/public/vote.html" />
     </list>
     <ignored path="Polling.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -52,19 +52,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="vote.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="vote.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/vote.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="54" selection-start="647" selection-end="647" vertical-scroll-proportion="-11.25">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="8" selection-start="15" selection-end="15" vertical-scroll-proportion="0.02388535">
+            <state line="25" column="50" selection-start="773" selection-end="773" vertical-scroll-proportion="0.62086093">
               <folding />
             </state>
           </provider>
@@ -122,8 +113,8 @@
         <option value="$PROJECT_DIR$/views/client.jade" />
         <option value="$PROJECT_DIR$/views/vote.html" />
         <option value="$PROJECT_DIR$/server.js" />
-        <option value="$PROJECT_DIR$/public/vote.html" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/public/vote.html" />
       </list>
     </option>
   </component>
@@ -490,16 +481,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/vote.html">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="54" selection-start="647" selection-end="647" vertical-scroll-proportion="-11.25">
+        <state line="1" column="8" selection-start="15" selection-end="15" vertical-scroll-proportion="0.02388535">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/public/vote.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="8" selection-start="15" selection-end="15" vertical-scroll-proportion="0.02388535">
+        <state line="25" column="50" selection-start="773" selection-end="773" vertical-scroll-proportion="0.62086093">
           <folding />
         </state>
       </provider>

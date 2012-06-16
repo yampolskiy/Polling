@@ -15,8 +15,8 @@
 <body>
 <div style="margin-left: auto; margin-right: auto; width: 300px;" class="well">
     <center><h1>Vote</h1></center>
-    <a href="#" class="btn btn-success">Thumbs Up</a>
-    <a href="#" class="btn btn-danger">Thumbs Down</a>
+    <a id="thumbsUp" href="#" class="btn btn-success">Thumbs Up</a>
+    <a id="thumbsDown" href="#" class="btn btn-danger">Thumbs Down</a>
 </div>
 </body>
 </html>
@@ -24,6 +24,11 @@
 <!--tracking code -->
 <script type="text/javascript">
     (function() {
-
+        $('#thumbsUp').click(function(){
+            socket.emit('vote', { data: true });
+        });
+        $('#thumbsDown').click(function(){
+            socket.emit('vote', { data: false });
+        })
     })();
 </script>
