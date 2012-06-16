@@ -43,18 +43,14 @@
             r.get("everyone_yes", function(err ,reply) {
                 return io.sockets.emit('count_yes', {
                     number: reply
-                } );
-
-
-                }   );
+                });
+            });
 
             r.get("everyone_no", function(err ,reply) {
                 return io.sockets.emit('count_no', {
                     number: reply
-                } );
-
-
-            }   );
+                });
+            });
 
 
         }, 1200);
@@ -98,10 +94,6 @@
                 r.set(key, newVote.toString());
                 console.log('Just set the key to ', newVote);
             });
-
-
-
-
         });
     });
 

@@ -3,7 +3,7 @@ html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
-    script(src="/socket.io/socket.io.js")
+    script(src="http://localhost:10927/socket.io/socket.io.js")
     script(src="/javascripts/smoothie.js")
     script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js")
   body
@@ -23,6 +23,8 @@ html
               labels: { fillStyle:'rgb(144,144,144)' }
             });
           // Data
+          console.log('About to add time series');
+
           var line1 = new TimeSeries();
            smoothie.streamTo(document.getElementById("mycanvas"), 1000 /*delay*/);
           smoothie.addTimeSeries(line1,
@@ -32,10 +34,19 @@ html
           smoothie.addTimeSeries(line2,
              {stokeStyle: 'rgb(200, 0, 0)', lineWidth:5 });
 
-          socket.on('everyone_yes', function (data) {
+          console.log('socket status', socket);
+          socket.on('count_yes', function (data) {
+            console.log('count_yes trigger got executed for ', data.number);
             line1.append(new Date().getTime(), data.number);
                 $('span').text(data.number + '!');
           });
+
+          socket.on('count_no', function (data) {
+            console.log('count_no trigger got executed for ', data.number);
+            line2.append(new Date().getTime(), data.number);
+                $('span').text(data.number + '!');
+          });
+
 
           // Add to SmoothieChart
           smoothie.addTimeSeries(line1);
