@@ -25,10 +25,10 @@
 <script type="text/javascript">
     (function() {
         $('#thumbsUp').click(function(){
-            socket.emit('vote', { data: true });
+            socket.emit('vote', { data: { vote: true } });
         });
         $('#thumbsDown').click(function(){
-            socket.emit('vote', { data: false });
+            socket.emit('vote', { data: { vote: false } });
         })
     })();
 </script>
