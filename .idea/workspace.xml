@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aa929068-ce7f-4f34-905d-e1c93f22275e" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/vote.html" afterPath="$PROJECT_DIR$/public/vote.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server.js" afterPath="$PROJECT_DIR$/server.js" />
     </list>
@@ -28,7 +29,7 @@
       <file leaf-file-name="server.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="26" selection-start="1320" selection-end="1320" vertical-scroll-proportion="0.3312102">
+            <state line="60" column="41" selection-start="1979" selection-end="1979" vertical-scroll-proportion="0.5254777">
               <folding />
             </state>
           </provider>
@@ -55,7 +56,7 @@
       <file leaf-file-name="vote.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/vote.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="46" selection-start="755" selection-end="755" vertical-scroll-proportion="-15.0">
+            <state line="38" column="39" selection-start="1074" selection-end="1074" vertical-scroll-proportion="-23.75">
               <folding />
             </state>
           </provider>
@@ -483,14 +484,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/vote.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="46" selection-start="755" selection-end="755" vertical-scroll-proportion="-15.0">
+        <state line="38" column="39" selection-start="1074" selection-end="1074" vertical-scroll-proportion="-23.75">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="26" selection-start="1320" selection-end="1320" vertical-scroll-proportion="0.3312102">
+        <state line="60" column="41" selection-start="1979" selection-end="1979" vertical-scroll-proportion="0.5254777">
           <folding />
         </state>
       </provider>

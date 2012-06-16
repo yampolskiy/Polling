@@ -58,19 +58,14 @@
 
             console.log("Client ", key, " : OldVote = ", oldVote, "NewVote = ", newVote);
 
-            // set new vote
-            //r.del("votes", socket.id);
-            //r.set("votes", socket.id, obj.data.vote, redis.print);
-            r.del(key);
-
-            r.set(key, newVote);
+            r.set(key, newVote.toString());
             console.log('Just set the key to ', newVote);
             var foo = r.get(key);
 
             console.log('sleeping');
             setTimeout(1000);
 
-            console.log('Right after ', foo);
+            console.log('Right after ', foo.toString());
 
 
         });
