@@ -66,8 +66,8 @@
                 if (oldVote === newVote) {
                     // no-op
                 } else {
-                    everyone_yes = null;
-                    everyone_no = null;
+                    var everyone_yes = null;
+                    var everyone_no = null;
                     if (newVote === true) {
                         console.log('Counting the true');
                         everyone_yes = r.incr("everyone_yes")
