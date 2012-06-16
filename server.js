@@ -12,7 +12,7 @@
         app.set('view engine', 'jade');
         app.use(express.bodyParser());
         app.use(express.methodOverride());
-        //app.use(express.session({ store: new MemoryStore({ reapInterval: 60000 * 10 }) }));  
+        //app.use(express.session({ store: new MemoryStore({ reapInterval: 60000 * 10 }) }));
         app.use(require('stylus').middleware({
             src: __dirname + '/public'
         }));
@@ -57,17 +57,28 @@
             var newVote = obj.data.vote;
 
             console.log("Client ", key, " : OldVote = ", oldVote, "NewVote = ", newVote);
+            if (oldVote === newVote) {
+                // no-op
+            } else {
+                if (newVote === true) {
+                    console.log('Counting the true');
+                }   else {
+                    console.log('Counting the false');
+                }
+            }
+
 
             r.set(key, newVote.toString());
             console.log('Just set the key to ', newVote);
-            var foo = r.get(key);
-
-            console.log('sleeping');
-            setTimeout(1000);
-
-            console.log('Right after ', foo.toString());
-
-
+            var foo = r.get(key, function(err, reply)
+                {
+                    if (err) {
+                        console.log("Error :" + err);
+                    } else {
+                        console.log("Value right after: " + reply);
+                    }
+                }
+            );
         });
     });
 
