@@ -57,10 +57,10 @@
             var newVote = obj.data.vote;
 
             console.log("Client ", key, " : OldVote = ", oldVote, "NewVote = ", newVote);
-            if (OldVote === NewVote) {
+            if (oldVote === newVote) {
                 // no-op
             } else {
-                if (NewVote === true) {
+                if (newVote === true) {
                     console.log('Counting the true');
                 }   else {
                     console.log('Counting the false');
